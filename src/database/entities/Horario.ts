@@ -1,3 +1,4 @@
+import { randomInt } from 'crypto';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('horarios')
@@ -13,4 +14,8 @@ export default class Horario {
 
   @Column()
   diaSemana: string;
+
+  constructor() {
+    this.id = randomInt(1000);
+  }
 }

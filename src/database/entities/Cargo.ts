@@ -1,3 +1,4 @@
+import { randomInt } from 'crypto';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('cargos')
@@ -10,4 +11,9 @@ export default class Cargo {
 
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.id = randomInt(1000);
+    this.ativo = true;
+  }
 }
