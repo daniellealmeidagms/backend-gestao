@@ -2,6 +2,10 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('horarios')
 export default class Horario {
+  params: { id: any; horarioInicio: any; horarioFim: any; diaSemana: any; };
+  json(result: any) {
+    throw new Error("Method not implemented.");
+  }
   @PrimaryColumn()
   id: number;
 
@@ -13,4 +17,5 @@ export default class Horario {
 
   @Column()
   diaSemana: string;
+  status: any;
 }
