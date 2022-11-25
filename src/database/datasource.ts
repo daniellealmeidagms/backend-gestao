@@ -29,5 +29,5 @@ export const AppDataSource = new DataSource({
     Responsavel,
   ],
   subscribers: [],
-  migrations: [],
+  migrations: ['./src/database/migrations/*.ts'],
 });
