@@ -1,0 +1,18 @@
+import { Request, Response } from 'express';
+import { GetOneAlunoService } from '../services/GetOneAlunoService';
+
+export class GetOneAlunoController {
+  async handle(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const service = new GetOneAlunoService();
+
+    const alunos = await service.execute(id);
+
+    if (alunos instanceof Error) {
+      return response.status(202).json(alunos.message);
+    }
+
+    return response.status(404).end;
+  }
+}

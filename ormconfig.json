@@ -5,5 +5,9 @@
   "username": "postgres",
   "password": "postgres",
   "database": "api-gestao",
-  "migrations": []
+  "migrations": ["./src/migration;*.ts"],
+    "cli": {
+        "migrationsDir": "./src/migration"
+    }
+
 }
