@@ -1,3 +1,4 @@
+import { randomInt } from 'crypto';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('acoes')
@@ -15,11 +16,16 @@ export default class Acao {
   statusAcao: string;
 
   @Column()
-  datainicio: Date;
+  dataInicio: Date;
 
   @Column()
   dataFim: Date;
 
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.id = randomInt(1000);
+    this.ativo = true;
+  }
 }

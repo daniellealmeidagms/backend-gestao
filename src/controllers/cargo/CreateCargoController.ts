@@ -1,4 +1,4 @@
-import CreateCargoService from '@services/CreateCargoService';
+import CreateCargoService from '@services/cargo/CreateCargoService';
 import { Request, Response } from 'express';
 
 export default class CreateCargoController {

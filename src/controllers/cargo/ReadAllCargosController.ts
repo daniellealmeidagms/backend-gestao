@@ -1,4 +1,4 @@
-import ReadAllCargosService from '@services/ReadAllCargosService';
+import ReadAllCargosService from '@services/cargo/ReadAllCargosService';
 import { Request, Response } from 'express';
 
 export default class ReadAllCargosController {

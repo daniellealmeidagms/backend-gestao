@@ -1,29 +1,28 @@
-import {Request, Response } from "express";
-//import {CreateAcaoService } from '../service/CreateAcaoService';
+import CreateAcaoService from '@services/acao/CreateAcaoService';
+import { Request, Response } from 'express';
 
-export class CreateAcaoController{
-  async handle(request: Request, response: Response){
-    const {nome, description} = request.body
+export class CreateAcaoController {
+  async handle(req: Request, res: Response) {
+    const { aluno, descricaoAcao, statusAcao, dataInicio, dataFim } = req.body;
+    console.log(aluno);
+    console.log(descricaoAcao);
+    console.log(statusAcao);
+    console.log(dataInicio);
 
-    const service = new CreateAcaoController();
+    const service = new CreateAcaoService();
 
     const result = await service.execute({
-      id,
       aluno,
       descricaoAcao,
       statusAcao,
-      datainicio,
+      dataInicio,
       dataFim,
-      ativo
-
     });
 
-    if(result instanceof Error){
-      return response.status(400).json(result.message);
-
+    if (result instanceof Error) {
+      return res.status(400).json(result.message);
     }
-    
-    return response.json(result)
 
+    return res.json(result);
   }
 }

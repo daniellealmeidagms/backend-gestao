@@ -1,4 +1,4 @@
-import DeleteCargoService from '@services/DeleteCargoService';
+import DeleteCargoService from '@services/cargo/DeleteCargoService';
 import { Request, Response } from 'express';
 
 export default class DeleteCargoController {
