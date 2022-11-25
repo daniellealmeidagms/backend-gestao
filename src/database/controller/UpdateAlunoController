@@ -1,0 +1,43 @@
+import { Request, Response } from 'express';
+import { UpdateAlunoService } from '../services/UpdateAlunoService';
+
+export class UpdateAlunoController {
+  async handle(request: Request, response: Response) {
+    const { id } = request.params;
+    const {
+      fkMembro,
+      cpfAluno,
+      nomeAluno,
+      nomeSocialAluno,
+      emailAluno,
+      telefoneAluno,
+      dataNascimento,
+      prioridade,
+      inicioAtendimento,
+      fimAtendimento,
+      ativo,
+    } = request.body;
+
+    const service = new UpdateAlunoService();
+
+    const result = await service.execute({
+      fkMembro,
+      cpfAluno,
+      nomeAluno,
+      nomeSocialAluno,
+      emailAluno,
+      telefoneAluno,
+      dataNascimento,
+      prioridade,
+      inicioAtendimento,
+      fimAtendimento,
+      ativo,
+    });
+
+    if (result instanceof Error) {
+      return response.status(400).json(result.message);
+    }
+
+    return response.json(result);
+  }
+}
