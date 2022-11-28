@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('membros')
 export default class Membro {
   @PrimaryColumn()
-  id: string;
+  id: number;
 
   @Column()
   fkCargo: number;
